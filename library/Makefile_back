@@ -1,0 +1,16 @@
+OBJS = main.o print.o input.o
+TARGET = test
+cc = gcc
+CFLAGS = -g
+
+
+$(TARGET) : $(OBJS)
+	$(cc) -o $(TARGET) $(CFLAGS) $(OBJS) 
+main.o : main.c
+	$(cc) -c $(CFLAGS) main.c
+print.o : print.c
+	$(cc) -c $(CFLAGS) print.c
+input.o : input.c
+	$(cc) -c $(CFLAGS) input.c
+clean :
+	rm -f *.o $(TARGET)
